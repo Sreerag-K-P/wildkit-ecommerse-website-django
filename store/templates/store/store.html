@@ -1,0 +1,37 @@
+{% extends 'store/main.html' %}
+
+{% load static %}
+
+{% block content %} 
+
+
+<!-- carousal -->
+
+<div class="container box-element" >
+    <img class="img-responsive"  src="{% static 'images/bannerofshop.jpg' %}" alt="" width="100%" height="100%">
+</div>
+<hr>
+<div class="row">
+    {% for product in products %}
+    <div class="col-lg-4">
+        <img class = "thumbnail" src="{{product.imageURL}}" alt="product-image">
+        <div class="box-element product">
+            <h6><strong>{{ product.name }}</strong></h6>
+            <hr>
+            <button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+            <!-- <a class="btn btn-outline-success" href="#">view</a> -->
+            <h4 style="display: inline-block;float:right;">${{product.price|floatformat:2}}</h4>
+        </div>
+    </div>
+
+   {% endfor %}
+     
+</div>
+
+
+
+{% endblock content %}
+
+
+
+
